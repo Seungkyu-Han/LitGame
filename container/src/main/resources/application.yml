@@ -1,0 +1,4 @@
+springdoc:
+  swagger-ui:
+    title: ${swagger_title}
+    path: ${swagger_path}

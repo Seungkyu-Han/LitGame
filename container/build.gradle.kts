@@ -14,7 +14,14 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+
+    //module
+
+    //spring
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+
+    //swagger
+    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0")
 }
 
 tasks.test {
