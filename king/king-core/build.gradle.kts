@@ -15,11 +15,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    //module
-    implementation(project(":king:king-core"))
-
     //spring
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework:spring-context") // 또는 6.x.x
 
     //websocket
     implementation ("org.springframework.boot:spring-boot-starter-websocket")

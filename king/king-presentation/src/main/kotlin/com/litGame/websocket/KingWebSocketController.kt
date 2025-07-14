@@ -1,24 +1,26 @@
 package com.litGame.websocket
 
+import com.litGame.dto.TestDto
+import com.litGame.service.KingService
 import org.springframework.messaging.handler.annotation.DestinationVariable
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor
-import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class KingWebSocketController {
+class KingWebSocketController(
+    private val kingService: KingService
+) {
 
     @MessageMapping("/{roomId}")
-    suspend fun publishMessage(
-        simpleMessageHeaderAccessor: SimpMessageHeaderAccessor,
+    fun publishMessage(
+        message: TestDto,
         @DestinationVariable("roomId") roomId: String,
-        @RequestBody message: String
+        simpleMessageHeaderAccessor: SimpMessageHeaderAccessor
     ){
         val sessionId = simpleMessageHeaderAccessor.sessionId
 
-        println(sessionId)
 
-
+        kingService.sendMessage("$message - $sessionId", roomId)
     }
 }
