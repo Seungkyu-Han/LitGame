@@ -3,3 +3,6 @@ plugins {
 }
 rootProject.name = "LitGame"
 include("container")
+include("king")
+include("king:king-presentation")
+findProject(":king:king-presentation")?.name = "king-presentation"

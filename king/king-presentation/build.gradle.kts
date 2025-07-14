@@ -15,14 +15,11 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    //module
-    implementation(project(":king:king-presentation"))
-
     //spring
     implementation("org.springframework.boot:spring-boot-starter-webflux")
 
-    //swagger
-    implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0")
+    //websocket
+    implementation ("org.springframework.boot:spring-boot-starter-websocket")
 }
 
 tasks.test {
