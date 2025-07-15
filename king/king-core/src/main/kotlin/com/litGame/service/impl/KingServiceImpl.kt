@@ -13,4 +13,8 @@ class KingServiceImpl(
         simpMessageSendingOperations.convertAndSend("/sub/$roomId", message)
         return "SUCCESS"
     }
+
+    override fun createGameRoom(): Int {
+        return (1000..9999).random()
+    }
 }
