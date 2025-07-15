@@ -15,14 +15,11 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    //module
-    implementation(project(":king:king-presentation"))
-
     //spring
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework:spring-context")
 
-    //swagger
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+    //websocket
+    implementation ("org.springframework.boot:spring-boot-starter-websocket")
 }
 
 tasks.test {

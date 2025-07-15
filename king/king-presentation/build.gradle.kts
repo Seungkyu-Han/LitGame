@@ -16,13 +16,15 @@ dependencies {
     testImplementation(kotlin("test"))
 
     //module
-    implementation(project(":king:king-presentation"))
+    implementation(project(":king:king-core"))
 
     //spring
     implementation("org.springframework.boot:spring-boot-starter-web")
 
-    //swagger
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+    //websocket
+    implementation ("org.springframework.boot:spring-boot-starter-websocket")
+
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.0")
 }
 
 tasks.test {
