@@ -25,5 +25,5 @@ class KingWebSocket {
     @Parameters(
         Parameter(name = "roomId", description = "이벤트를 전송할 방의 번호")
     )
-    fun publish(@PathVariable roomId: String, playerDto: PlayGameDto){}
+    fun publish(@PathVariable roomId: String, @RequestBody playerDto: PlayGameDto){}
 }
