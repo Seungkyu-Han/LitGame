@@ -19,7 +19,7 @@ dependencies {
     implementation(project(":king:king-core"))
 
     //spring
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 
     //websocket
     implementation ("org.springframework.boot:spring-boot-starter-websocket")

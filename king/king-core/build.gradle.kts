@@ -16,7 +16,7 @@ dependencies {
     testImplementation(kotlin("test"))
 
     //spring
-    implementation("org.springframework:spring-context") // 또는 6.x.x
+    implementation("org.springframework:spring-context")
 
     //websocket
     implementation ("org.springframework.boot:spring-boot-starter-websocket")
