@@ -4,14 +4,3 @@ on:
   push:
     branches: ["deploy"]
   workflow_dispatch: {}
-
-
-jobs:
-  test:
-    runs-on: ubuntu-20.04
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: [LOG] start test job
-        run: echo "====== TEST ======"
