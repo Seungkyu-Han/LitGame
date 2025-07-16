@@ -24,7 +24,7 @@ dependencies {
     //websocket
     implementation ("org.springframework.boot:spring-boot-starter-websocket")
 
-    implementation("io.swagger.core.v3:swagger-annotations:2.2.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 }
 
 tasks.test {
