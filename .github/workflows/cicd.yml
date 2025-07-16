@@ -27,7 +27,7 @@ jobs:
       - name: test with Gradle Wrapper
         run: ./gradlew :container:test
 
-  build and push image:
+  build_and_push_image:
     needs: test
     runs-on: ubuntu-latest
     permissions:
