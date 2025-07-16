@@ -13,6 +13,8 @@ jobs:
       contents: read
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: [Log] Start test job
         run: echo "===== TEST JOB START ====="
 
@@ -56,6 +58,8 @@ jobs:
       contents: read
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: [Log] Start build job
         run: echo "===== BUILD JOB START ====="
 
