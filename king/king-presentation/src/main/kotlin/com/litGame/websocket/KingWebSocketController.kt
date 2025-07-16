@@ -19,12 +19,12 @@ class KingWebSocketController(
         @DestinationVariable("roomId") roomId: String,
         simpleMessageHeaderAccessor: SimpMessageHeaderAccessor
     ){
-        val sessionId = simpleMessageHeaderAccessor.sessionId
+        val userId = simpleMessageHeaderAccessor.sessionAttributes?.get("userId") as? String
 
         when(playGameDto.type)
         {
-            TypeEnum.MESSAGE -> kingService.sendMessage("${playGameDto.content} - $sessionId", roomId)
-            else -> println("${playGameDto.content} - $sessionId")
+            TypeEnum.MESSAGE -> kingService.sendMessage("${playGameDto.content} - $userId", roomId)
+            else -> println("${playGameDto.content} - $userId")
         }
 
     }
