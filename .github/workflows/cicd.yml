@@ -74,6 +74,20 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: '22'
+          port: ${{ secrets.SSH_PORT }}
           source: "container/docker-compose.yml"
           target: "/home/TKS/was"
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /home/TKS/was
+            docker-compose down
+            docker image rm -f ${{ secrets.DOCKER_IMAGE_NAME }} || true
+            docker-compose pull
+            docker-compose up -d
