@@ -4,7 +4,7 @@ import com.litGame.enums.GameStatus
 import java.time.LocalDateTime
 
 class KingGame(
-    private val number: Int,
+    private val id: Int,
     private var name: String,
     private var capacity: Int,
     private var currentCount: Int = 0,
