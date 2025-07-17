@@ -22,7 +22,18 @@ class KingGame(
         this.currentCount ++
     }
 
-    fun isDelete() = (this.gameStatus == GameStatus.PENDING)
+    fun exit(){
+        this.currentCount --
+        if(this.currentCount <= 0){
+            this.destroy()
+        }
+    }
+
+    private fun destroy() {
+        this.gameStatus = GameStatus.DESTROYED
+    }
+
+    fun isDelete() = (this.gameStatus == GameStatus.PENDING || this.gameStatus == GameStatus.DESTROYED)
             && (this.currentCount == 0)
             && (LocalDateTime.now().isAfter(createdAt.plusMinutes(5)))
 

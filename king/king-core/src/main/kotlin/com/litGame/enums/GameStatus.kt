@@ -2,5 +2,5 @@ package com.litGame.enums
 
 enum class GameStatus {
 
-    PENDING, READY
+    PENDING, READY, DESTROYED
 }
