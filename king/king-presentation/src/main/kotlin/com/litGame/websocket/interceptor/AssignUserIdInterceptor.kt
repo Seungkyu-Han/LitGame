@@ -1,0 +1,5 @@
+package com.litGame.websocket.interceptor
+
+import org.springframework.messaging.support.ChannelInterceptor
+
+interface AssignUserIdInterceptor: ChannelInterceptor

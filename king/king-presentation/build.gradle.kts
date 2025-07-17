@@ -24,7 +24,12 @@ dependencies {
     //websocket
     implementation ("org.springframework.boot:spring-boot-starter-websocket")
 
+    //swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+
+    //lombok
+    implementation("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
 }
 
 tasks.test {

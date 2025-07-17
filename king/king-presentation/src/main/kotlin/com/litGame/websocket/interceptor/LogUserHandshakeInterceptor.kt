@@ -1,0 +1,5 @@
+package com.litGame.websocket.interceptor
+
+import org.springframework.web.socket.server.HandshakeInterceptor
+
+interface LogUserHandshakeInterceptor: HandshakeInterceptor
