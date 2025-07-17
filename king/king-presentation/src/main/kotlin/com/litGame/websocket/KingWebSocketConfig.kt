@@ -2,7 +2,6 @@ package com.litGame.websocket
 
 import com.litGame.websocket.interceptor.AssignUserIdInterceptor
 import com.litGame.websocket.interceptor.LogUserHandshakeInterceptor
-import com.litGame.websocket.interceptor.impl.Log4jLogUserHandShaker
 import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.simp.config.ChannelRegistration
 import org.springframework.messaging.simp.config.MessageBrokerRegistry
