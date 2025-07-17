@@ -1,6 +1,7 @@
 package com.litGame.websocket
 
 import com.litGame.websocket.interceptor.AssignUserIdInterceptor
+import com.litGame.websocket.interceptor.KingGameInterceptor
 import com.litGame.websocket.interceptor.LogUserHandshakeInterceptor
 import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.simp.config.ChannelRegistration
@@ -13,7 +14,8 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 class KingWebSocketConfig(
     private val assignUserIdInterceptor: AssignUserIdInterceptor,
-    private val logUserHandshakeInterceptor: LogUserHandshakeInterceptor
+    private val logUserHandshakeInterceptor: LogUserHandshakeInterceptor,
+    private val kingGameInterceptor: KingGameInterceptor
 ): WebSocketMessageBrokerConfigurer {
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
@@ -34,6 +36,7 @@ class KingWebSocketConfig(
 
     override fun configureClientInboundChannel(registration: ChannelRegistration) {
         registration.interceptors(assignUserIdInterceptor)
+        registration.interceptors(kingGameInterceptor)
         super.configureClientInboundChannel(registration)
     }
 }
