@@ -16,9 +16,12 @@ class KingGame(
 
     fun isEmpty() = this.currentCount == 0
 
-    fun canJoin() = (gameStatus == GameStatus.READY) && (this.capacity > this.currentCount)
+    fun canJoin() = (gameStatus == GameStatus.READY || gameStatus == GameStatus.PENDING) && (this.capacity > this.currentCount)
 
     fun join() {
+        if(gameStatus == GameStatus.PENDING) {
+            this.gameStatus = GameStatus.READY
+        }
         this.currentCount ++
     }
 
@@ -36,6 +39,5 @@ class KingGame(
     fun isDelete() = (this.gameStatus == GameStatus.PENDING || this.gameStatus == GameStatus.DESTROYED)
             && (this.currentCount == 0)
             && (LocalDateTime.now().isAfter(createdAt.plusMinutes(5)))
-
 
 }

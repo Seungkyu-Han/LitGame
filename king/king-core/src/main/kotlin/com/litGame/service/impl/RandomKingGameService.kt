@@ -31,4 +31,11 @@ class RandomKingGameService: KingGameService {
         }
         else false
     }
+
+    override fun exitGame(gameRoomId: Int) {
+
+        val kingGame = kingGames[gameRoomId] ?: return
+
+        kingGame.exit()
+    }
 }
