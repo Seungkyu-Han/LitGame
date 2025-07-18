@@ -21,7 +21,7 @@ class HashMapKingGameInterceptorImpl(
 
         if(accessor.command == StompCommand.SUBSCRIBE)
         {
-            joinGame(accessor)
+            joinGame(accessor, channel)
         }
 
         return super.preSend(message, channel)
@@ -48,7 +48,7 @@ class HashMapKingGameInterceptorImpl(
         }
     }
 
-    fun joinGame(stompHeaderAccessor: StompHeaderAccessor){
+    fun joinGame(stompHeaderAccessor: StompHeaderAccessor, channel: MessageChannel) {
 
         val gameRoomId = getDestination(stompHeaderAccessor)
         val sessionId = stompHeaderAccessor.sessionId
