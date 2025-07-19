@@ -23,9 +23,11 @@ class KingController(
         ApiResponse(responseCode = "201", description = "방이 생성됨")
     )
     @ResponseStatus(HttpStatus.CREATED)
-    fun createGame(@RequestBody createGameReq: CreateGameReq): CreateGameRes =
-        CreateGameRes(gameRoomId = kingGameService.createGame(
+    fun createGame(@RequestBody createGameReq: CreateGameReq): CreateGameRes{
+        return CreateGameRes(gameRoomId = kingGameService.createGame(
             name = createGameReq.name,
             capacity = createGameReq.capacity
         ))
+    }
+
 }
