@@ -2,5 +2,5 @@ package com.litGame.service
 
 interface ChatService {
 
-    fun sendMessage(message: String, gameRoomId: Int)
+    fun sendMessage(content: String, sender: String, gameRoomId: Int)
 }

@@ -1,5 +1,6 @@
 package com.litGame.service.impl
 
+import com.litGame.dto.res.MessageRes
 import com.litGame.service.ChatService
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
@@ -9,7 +10,7 @@ class SingleServerChatService(
     private val messagingTemplate: SimpMessagingTemplate
 ): ChatService {
 
-    override fun sendMessage(message: String, gameRoomId: Int) {
-        messagingTemplate.convertAndSend("/sub/$gameRoomId", message)
+    override fun sendMessage(content: String, sender: String, gameRoomId: Int) {
+        messagingTemplate.convertAndSend("/sub/$gameRoomId", MessageRes(sender = sender, content = content))
     }
 }
