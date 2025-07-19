@@ -4,6 +4,6 @@ services:
     image: seungkyu/litgame:latest
     restart: always
     ports:
-      - "8080:8080"
+      - "12040:8080"
     env_file:
       - .env
