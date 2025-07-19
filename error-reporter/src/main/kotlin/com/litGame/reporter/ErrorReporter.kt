@@ -4,5 +4,5 @@ import java.time.LocalDateTime
 
 interface ErrorReporter {
 
-    fun reportError(content: String, localDateTime: LocalDateTime)
+    fun reportError(ex: Throwable, localDateTime: LocalDateTime)
 }
