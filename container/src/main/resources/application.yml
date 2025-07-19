@@ -1,0 +1,4 @@
+
+slack:
+  webhook_url:
+    error: ${SLACK_WEBHOOK_URL_ERROR}

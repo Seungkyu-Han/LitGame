@@ -15,8 +15,9 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 class KingWebSocketConfig(
     private val assignUserIdInterceptor: AssignUserIdInterceptor,
     private val logUserHandshakeInterceptor: LogUserHandshakeInterceptor,
-    private val kingGameInterceptor: KingGameInterceptor
-): WebSocketMessageBrokerConfigurer {
+    private val kingGameInterceptor: KingGameInterceptor,
+    private val stompErrorHandlerConfig: StompErrorHandlerConfig
+): WebSocketMessageBrokerConfigurer{
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
         registry.addEndpoint("/websocket/v1/king")
@@ -27,6 +28,8 @@ class KingWebSocketConfig(
         registry.addEndpoint("/websocket/v1/king")
             .addInterceptors(logUserHandshakeInterceptor)
             .setAllowedOrigins("*")
+
+        registry.setErrorHandler(stompErrorHandlerConfig)
     }
 
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {

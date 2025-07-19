@@ -4,7 +4,7 @@ import com.litGame.enums.TypeEnum
 import io.swagger.v3.oas.annotations.media.Schema
 
 
-@Schema(description = "소켓 메시지 DTO")
+@Schema(name = "소켓 메시지 DTO", description = "소켓 통신 중 사용할 DTO")
 data class PlayGameDto(
 
     @Schema(

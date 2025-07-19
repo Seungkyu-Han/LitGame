@@ -1,9 +1,8 @@
 package com.litGame.controller
 
+import com.litGame.chat.ChatHandler
 import com.litGame.dto.req.PlayGameDto
 import com.litGame.enums.TypeEnum
-import com.litGame.service.ChatService
-import com.litGame.service.KingGameService
 import org.springframework.messaging.handler.annotation.DestinationVariable
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor
@@ -11,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class KingWebSocketController(
-    private val chatService: ChatService,
-    private val kingGameService: KingGameService
+    private val chatHandler: ChatHandler
 ) {
 
     @MessageMapping("/{roomId}")
@@ -25,7 +23,7 @@ class KingWebSocketController(
 
         when(playGameDto.type)
         {
-            TypeEnum.MESSAGE -> chatService.sendMessage(playGameDto.content, userId, gameRoomId)
+            TypeEnum.MESSAGE -> chatHandler.sendMessage(playGameDto.content, userId, gameRoomId)
             else -> println("${playGameDto.content} - $userId")
         }
 

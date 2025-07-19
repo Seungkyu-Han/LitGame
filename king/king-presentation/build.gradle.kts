@@ -17,6 +17,7 @@ dependencies {
 
     //module
     implementation(project(":king:king-core"))
+    implementation(project(":error-reporter"))
 
     //spring
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -25,7 +26,7 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-websocket")
 
     //swagger
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
 
     //lombok
     implementation("org.projectlombok:lombok:1.18.38")
