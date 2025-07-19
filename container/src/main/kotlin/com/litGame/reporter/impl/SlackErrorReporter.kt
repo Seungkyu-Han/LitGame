@@ -15,7 +15,7 @@ class SlackErrorReporter(
 
     override fun reportError(content: String, localDateTime: LocalDateTime) {
 
-        val payload = mapOf("text" to "${localDateTime}에 ${content} 에러가 발생")
+        val payload = mapOf("text" to "${localDateTime}에 $content")
 
         WebClient.create()
             .post().uri(slackWebHookUrl)
