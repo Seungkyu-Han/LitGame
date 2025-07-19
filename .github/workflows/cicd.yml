@@ -76,7 +76,7 @@ jobs:
           key: ${{ secrets.SSH_PEM }}
           port: ${{ secrets.SSH_PORT }}
           source: "container/docker-compose.yml"
-          target: "${{ secrets.DEPLOY_TARGET_DIR }}"
+          target: "${{ secrets.SSH_DIR }}"
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.0
