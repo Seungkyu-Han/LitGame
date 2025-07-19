@@ -86,7 +86,7 @@ jobs:
           key: ${{ secrets.SSH_PEM }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /home/TKS/was/container
+            cd ${{ secrets.SSH_DIR }}/container
             docker-compose down
             docker image rm -f ${{ secrets.DOCKER_IMAGE_NAME }} || true
             docker-compose pull
