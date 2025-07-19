@@ -1,8 +1,9 @@
-package com.litGame.websocket
+package com.litGame.controller
 
 import com.litGame.dto.req.PlayGameDto
 import com.litGame.enums.TypeEnum
-import com.litGame.service.KingService
+import com.litGame.service.ChatService
+import com.litGame.service.KingGameService
 import org.springframework.messaging.handler.annotation.DestinationVariable
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor
@@ -10,20 +11,21 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class KingWebSocketController(
-    private val kingService: KingService
+    private val chatService: ChatService,
+    private val kingGameService: KingGameService
 ) {
 
     @MessageMapping("/{roomId}")
     fun publishMessage(
         playGameDto: PlayGameDto,
-        @DestinationVariable("roomId") roomId: String,
+        @DestinationVariable("roomId") gameRoomId: Int,
         simpleMessageHeaderAccessor: SimpMessageHeaderAccessor
     ){
-        val userId = simpleMessageHeaderAccessor.sessionAttributes?.get("userId") as? String
+        val userId = (simpleMessageHeaderAccessor.sessionAttributes?.get("userId") as? String) ?: "익명의 사용자"
 
         when(playGameDto.type)
         {
-            TypeEnum.MESSAGE -> kingService.sendMessage("${playGameDto.content} - $userId", roomId)
+            TypeEnum.MESSAGE -> chatService.sendMessage(playGameDto.content, userId, gameRoomId)
             else -> println("${playGameDto.content} - $userId")
         }
 
