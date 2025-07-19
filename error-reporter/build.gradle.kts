@@ -15,8 +15,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 
-    //spring
-    implementation("org.springframework:spring-context")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
 }
 
 tasks.test {

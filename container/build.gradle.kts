@@ -16,11 +16,11 @@ dependencies {
     testImplementation(kotlin("test"))
 
     //module
+    implementation(project(":error-reporter"))
     implementation(project(":king:king-presentation"))
 
     //spring
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
 
     //swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")

@@ -17,6 +17,7 @@ dependencies {
 
     //module
     implementation(project(":king:king-core"))
+    implementation(project(":error-reporter"))
 
     //spring
     implementation("org.springframework.boot:spring-boot-starter-web")
