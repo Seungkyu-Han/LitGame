@@ -1,4 +1,6 @@
-
 slack:
   webhook_url:
     error: ${SLACK_WEBHOOK_URL_ERROR}
+
+spring:
+  server_url: ${SERVER_URL}
