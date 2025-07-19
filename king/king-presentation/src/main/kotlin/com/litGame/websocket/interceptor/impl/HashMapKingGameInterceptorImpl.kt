@@ -53,10 +53,7 @@ class HashMapKingGameInterceptorImpl(
         val gameRoomId = getDestination(stompHeaderAccessor)
         val sessionId = stompHeaderAccessor.sessionId
 
-
-        if (!kingGameService.joinGame(gameRoomId)){
-            throw IllegalStateException()
-        }
+        kingGameService.joinGame(gameRoomId)
 
         if(sessionId != null)
             this.sessionIdGameMap[sessionId] = gameRoomId

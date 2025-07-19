@@ -1,6 +1,8 @@
 package com.litGame.service.impl
 
 import com.litGame.domain.KingGame
+import com.litGame.exception.KingGameException
+import com.litGame.exception.KingGameExceptionStatus
 import com.litGame.service.KingGameService
 import org.springframework.stereotype.Service
 
@@ -23,13 +25,13 @@ class RandomKingGameService: KingGameService {
     }
 
     override fun joinGame(gameRoomId: Int): Boolean {
-        val kingGame = kingGames[gameRoomId] ?: return false
+        val kingGame = kingGames[gameRoomId] ?: throw KingGameException(KingGameExceptionStatus.GAME_NOT_EXIST)
 
         return if(kingGame.canJoin()){
             kingGame.join()
-             true
+            true
         }
-        else false
+        else throw KingGameException(KingGameExceptionStatus.ROOM_IS_FULL)
     }
 
     override fun exitGame(gameRoomId: Int) {
