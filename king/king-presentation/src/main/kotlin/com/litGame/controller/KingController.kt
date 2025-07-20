@@ -1,5 +1,6 @@
 package com.litGame.controller
 
+import com.litGame.domain.KingGame
 import com.litGame.dto.req.CreateGameReq
 import com.litGame.dto.res.CreateGameRes
 import com.litGame.service.KingGameService
@@ -28,6 +29,12 @@ class KingController(
             name = createGameReq.name,
             capacity = createGameReq.capacity
         ))
+    }
+
+    @GetMapping("/manage")
+    @Operation(description = "백엔드에서 남은 게임방을 관리하기 위한 API", summary = "프론트 사용 X")
+    fun manageGameRoom(): List<KingGame>{
+        return kingGameService.manageGame()
     }
 
 }
