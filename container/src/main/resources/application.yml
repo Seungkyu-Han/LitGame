@@ -4,3 +4,8 @@ slack:
 
 spring:
   server_url: ${SERVER_URL}
+
+logging:
+  level:
+    org:
+      springframework.web.servlet.resource: WARN
