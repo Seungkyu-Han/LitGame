@@ -4,9 +4,7 @@ import com.litGame.domain.KingGame
 import com.litGame.exception.KingGameException
 import com.litGame.exception.KingGameExceptionStatus
 import com.litGame.service.KingGameService
-import org.springframework.stereotype.Service
 
-@Service
 class RandomKingGameService: KingGameService {
 
     private val kingGames = mutableMapOf<Int, KingGame>()
@@ -39,5 +37,9 @@ class RandomKingGameService: KingGameService {
         val kingGame = kingGames[gameRoomId] ?: return
 
         kingGame.exit()
+    }
+
+    override fun manageGame(): List<KingGame> {
+        return kingGames.values.toList()
     }
 }
