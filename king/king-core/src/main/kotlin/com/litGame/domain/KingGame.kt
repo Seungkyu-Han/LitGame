@@ -36,8 +36,8 @@ class KingGame(
         this.gameStatus = GameStatus.DESTROYED
     }
 
-    fun isDelete() = (this.gameStatus == GameStatus.PENDING || this.gameStatus == GameStatus.DESTROYED)
+    fun isDelete() = (this.gameStatus == GameStatus.DESTROYED) || ((this.gameStatus == GameStatus.PENDING)
             && (this.currentCount == 0)
-            && (LocalDateTime.now().isAfter(createdAt.plusMinutes(5)))
+            && (LocalDateTime.now().isAfter(createdAt.plusMinutes(5))))
 
 }
