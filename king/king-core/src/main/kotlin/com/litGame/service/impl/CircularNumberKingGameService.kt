@@ -68,6 +68,8 @@ class CircularNumberKingGameService: KingGameService {
         if(curGameRoomId == lastGameRoomId)
             throw KingGameException(KingGameExceptionStatus.NOT_AVAILABLE_ROOM)
 
+        this.lastGameRoomId = curGameRoomId
+
         return curGameRoomId
     }
 
