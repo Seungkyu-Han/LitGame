@@ -52,6 +52,10 @@ class CircularNumberKingGameService: KingGameService {
         }
     }
 
+    override fun manageGame(): List<KingGame> {
+        return kingGames.values.toList()
+    }
+
     private fun searchNextGameRoomId(): Int {
         var curGameRoomId = lastGameRoomId + 1
 
@@ -67,12 +71,15 @@ class CircularNumberKingGameService: KingGameService {
         return curGameRoomId
     }
 
-    @Scheduled(cron = "0 */5 * * * *")
+    @Scheduled(cron = "0 */1 * * * *")
     fun removeGameRoomScheduler(){
-        for((gameRoomId, kingGame) in kingGames){
-            synchronized(this){
-                if(kingGame.isDelete())
-                    kingGames.remove(gameRoomId)
+        synchronized(this) {
+            val iterator = kingGames.entries.iterator()
+            while (iterator.hasNext()) {
+                val entry = iterator.next()
+                if (entry.value.isDelete()) {
+                    iterator.remove()
+                }
             }
         }
     }

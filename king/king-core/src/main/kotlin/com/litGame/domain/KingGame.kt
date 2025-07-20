@@ -4,13 +4,14 @@ import com.litGame.enums.GameStatus
 import java.time.LocalDateTime
 
 class KingGame(
-    private val id: Int,
+    val id: Int,
     private var name: String,
     private var capacity: Int,
     private var currentCount: Int = 0,
-    private var gameStatus: GameStatus = GameStatus.PENDING,
-    private val createdAt: LocalDateTime = LocalDateTime.now(),
+    var gameStatus: GameStatus = GameStatus.PENDING,
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 ) {
+
 
     fun isPending() = this.gameStatus == GameStatus.PENDING
 
@@ -38,6 +39,6 @@ class KingGame(
 
     fun isDelete() = (this.gameStatus == GameStatus.DESTROYED) || ((this.gameStatus == GameStatus.PENDING)
             && (this.currentCount == 0)
-            && (LocalDateTime.now().isAfter(createdAt.plusMinutes(5))))
+            && (LocalDateTime.now().isAfter(createdAt.plusMinutes(1))))
 
 }
